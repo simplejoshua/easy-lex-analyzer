@@ -4,7 +4,7 @@
     #include <stdio.h>
     #include <stdlib.h>
     int lineno = 1;
-    void print_token(char *token_type);
+    void print_token(char *token_class);
     void yyerror();
 %}
 COMMENT     "//".*
@@ -84,8 +84,8 @@ BOOL        "true"|"false"
 .               { yyerror("Unrecognized character"); }
 %%
 
-void print_token(char *token_type){
-    printf("yytext: %s\ttoken: %s\tlineno: %d\n", yytext, token_type, lineno);
+void print_token(char *token_class){
+    printf("<%s,%s>\n", token_class, yytext);
 }
 
 void yyerror(char *message){

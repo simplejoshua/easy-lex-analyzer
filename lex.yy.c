@@ -516,7 +516,7 @@ char *yytext;
     #include <stdio.h>
     #include <stdlib.h>
     int lineno = 1;
-    void print_token(char *token_type);
+    void print_token(char *token_class);
     void yyerror();
 #line 522 "lex.yy.c"
 
@@ -1963,8 +1963,8 @@ int main()
 #line 85 "easy-lex-analyzer.lex"
 
 
-void print_token(char *token_type){
-    printf("yytext: %s\ttoken: %s\tlineno: %d\n", yytext, token_type, lineno);
+void print_token(char *token_class){
+    printf("<%s,%s>\n", token_class, yytext);
 }
 
 void yyerror(char *message){
